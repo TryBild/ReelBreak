@@ -16,8 +16,6 @@
 The average Indian user scrolls **300+ reels/day** without realizing it.
 Existing apps only *show* the data. Nobody actually *stops* you.
 
-**BrainPal** — our closest competitor — has 1L+ downloads and zero WhatsApp integration, zero iOS support.
-
 ---
 
 ## What ReelBreak Does Differently
@@ -29,78 +27,32 @@ Existing apps only *show* the data. Nobody actually *stops* you.
 | WhatsApp Daily Digest | ❌ | ✅ **Our moat** |
 | iOS Support | ❌ | ✅ |
 | Price | ₹99/month | ₹79/month |
-| India-first Design | Partial | Full Hinglish ✅ |
 
 ---
 
 ## Core Features
 
-- 🔢 **Real-Time Counter** — Tracks every reel on Instagram, YouTube, Facebook, Snapchat
-- 🧠 **Brain Visual** — Brain degrades visually as scroll count climbs — emotional trigger to stop
-- 🚫 **Hard Block** — Literally locks the app when daily limit is hit
-- 💬 **WhatsApp Daily Digest** — Morning message: *"Kal 312 reels dekhe. Aaj ka goal: 100."*
-- ⚠️ **Live Alerts** — WhatsApp warning at 80% limit + block notification at 100%
-- 👥 **Friend Accountability** — Share daily count — social pressure is the strongest motivator
-
----
-
-## Tech Stack
-
-**Android** — Kotlin · Accessibility Service API · SharedPreferences · Jetpack Compose
-
-**iOS** — Swift · Screen Time API · Estimated scroll count
-
-**Backend** — Node.js · Express · MongoDB Atlas · WhatsApp Cloud API · node-cron
+- 🧠 **Brain Visual** — degrades as scroll count climbs
+- 🔢 **Real-Time Counter** — Instagram, YouTube, Snapchat, Facebook
+- 🚫 **Hard Block** — locks app when limit is hit
+- 💬 **WhatsApp Digest** — *"Kal 312 reels dekhe. Aaj ka goal: 100."*
+- 👥 **Friend Accountability** — share daily count
 
 ---
 
 ## Pricing
 
-| Plan | Price | Features |
-|---|---|---|
-| Free | ₹0 | Scroll tracking · Brain visual · In-app alerts |
-| Pro Monthly | ₹79/month | Hard block · WhatsApp digest · Weekly reports · Friend accountability |
-| Pro Yearly | ₹699/year | Everything Pro · Priority support · Advanced analytics |
-
----
-
-## Current Progress
-
-- ✅ Android foundation — ScrollTrackerService live
-- ✅ Real-time scroll detection — Instagram, YouTube, Snapchat, Facebook
-- ✅ Local persistence — count saved across sessions
-- ✅ Notification system — 80% warning + hard block alert
-- ✅ Brain visual + dashboard UI — live on device
-- ✅ Domain secured — reelbreak.in
-- 🔨 Backend API — in progress
-- 🔨 WhatsApp digest — in progress
-- 🔨 iOS app — in progress
+| Plan | Price |
+|---|---|
+| Free | ₹0 |
+| Pro Monthly | ₹79/month |
+| Pro Yearly | ₹699/year |
 
 ---
 
 ## Team
 
-Built by **RY Studio Lab**
-
-| Member | Role |
-|---|---|
-| Rahul Yadav | Backend Lead + Founder |
-| Member 2 | Android Developer |
-| Member 3 | iOS Developer |
-| 6 AI Agents | Assisting development |
-
----
-
-## Timeline
-
-**4 weeks to launch — June/July 2026**
-
-| Week | Focus |
-|---|---|
-| Week 1 | Android core + Backend API |
-| Week 2 | iOS app + WhatsApp digest |
-| Week 3 | Hard block + Polish |
-| Week 4 | Play Store + App Store submission |
+Built by **RY Studio Lab** — 3 members + 6 AI agents
 
 ---
 
@@ -108,8 +60,7 @@ Built by **RY Studio Lab**
 
 - 🌐 [reelbreak.in](https://reelbreak.in)
 - 📧 rystudiolab@gmail.com
-- 🏢 [RY Studio Lab](https://github.com/rahulyadavhub)
 
 ---
 
-*Also by RY Studio Lab: [MaalSaathi](https://github.com/rahulyadavhub/MaalSaathi) — WhatsApp AI fleet manager for Indian truck owners · 52 paid users · ₹26k MRR*
+*Also by RY Studio Lab: [MaalSaathi](https://github.com/rahulyadavhub/MaalSaathi) — WhatsApp AI for Indian truck owners · 52 paid users*
