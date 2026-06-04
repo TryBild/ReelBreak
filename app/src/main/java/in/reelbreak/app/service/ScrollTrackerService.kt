@@ -5,6 +5,7 @@ import android.accessibilityservice.AccessibilityServiceInfo
 import android.content.Context
 import android.content.SharedPreferences
 import android.view.accessibility.AccessibilityEvent
+import `in`.reelbreak.app.utils.NotificationHelper
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
@@ -13,12 +14,11 @@ class ScrollTrackerService : AccessibilityService() {
 
     private lateinit var prefs: SharedPreferences
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-
-    // Limits
-    private val DEFAULT_DAILY_LIMIT = 100
+    private val defaultDailyLimit = 100
 
     override fun onServiceConnected() {
         super.onServiceConnected()
+        NotificationHelper.createChannel(this)
         prefs = getSharedPreferences("reelbreak_data", Context.MODE_PRIVATE)
         val info = AccessibilityServiceInfo().apply {
             eventTypes = AccessibilityEvent.TYPE_VIEW_SCROLLED
@@ -30,7 +30,6 @@ class ScrollTrackerService : AccessibilityService() {
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         event ?: return
-
         when (event.eventType) {
             AccessibilityEvent.TYPE_VIEW_SCROLLED -> {
                 val pkg = event.packageName?.toString() ?: return
@@ -62,23 +61,21 @@ class ScrollTrackerService : AccessibilityService() {
     private fun checkLimit() {
         val today = dateFormat.format(Date())
         val count = prefs.getInt("count_$today", 0)
-        val limit = prefs.getInt("daily_limit", DEFAULT_DAILY_LIMIT)
-
+        val limit = prefs.getInt("daily_limit", defaultDailyLimit)
         when {
             count == (limit * 0.8).toInt() -> {
-                // 80% limit — warning
-                showNotification("⚠️ 80% limit reached! ${count}/${limit} reels today.")
+                NotificationHelper.showWarning(
+                    this,
+                    "⚠️ 80% limit reached! $count/$limit reels today."
+                )
             }
             count >= limit -> {
-                // 100% limit — hard block
-                showNotification("🚫 Daily limit hit! ${limit} reels done. Take a break!")
+                NotificationHelper.showBlock(
+                    this,
+                    "🚫 Daily limit hit! $limit reels done. Take a break!"
+                )
             }
         }
-    }
-
-    private fun showNotification(message: String) {
-        // TODO: Push notification — Week 2
-        android.util.Log.d("ReelBreak", message)
     }
 
     private fun isTrackedApp(pkg: String): Boolean {
