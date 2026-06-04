@@ -17,7 +17,7 @@ Existing apps like BrainPal only *show* the data. Nobody actually *stops* you.
 
 ## What ReelBreak Does Differently
 
-| Feature | BrainPal | ReelBreak |
+| Feature | others | ReelBreak |
 |---|---|---|
 | Scroll Tracking | ✅ | ✅ |
 | Hard Block | Pro only | Pro only ✅ |
