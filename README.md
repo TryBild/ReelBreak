@@ -1,4 +1,3 @@
-
 # ReelBreak 🧠
 ### Break the Reel. Reclaim Your Mind.
 
@@ -7,17 +6,19 @@
 [![Platform](https://img.shields.io/badge/Platform-Android%20%2B%20iOS-blue)](https://reelbreak.in)
 [![Status](https://img.shields.io/badge/Status-In%20Development-orange)](https://reelbreak.in)
 [![Studio](https://img.shields.io/badge/Studio-RY%20Studio%20Lab-purple)](https://github.com/rahulyadavhub)
+[![GitHub stars](https://img.shields.io/github/stars/rahulyadavhub/ReelBreak?style=social)](https://github.com/rahulyadavhub/ReelBreak)
+[![Last commit](https://img.shields.io/github/last-commit/rahulyadavhub/ReelBreak)](https://github.com/rahulyadavhub/ReelBreak)
 
 ---
 
 ## The Problem
 
 The average Indian user scrolls **300+ reels/day** without realizing it.
-Existing apps like BrainPal only *show* the data. Nobody actually *stops* you.
+Existing apps only *show* the data. Nobody actually *stops* you.
 
 ## What ReelBreak Does Differently
 
-| Feature | others | ReelBreak |
+| Feature | Others | ReelBreak |
 |---|---|---|
 | Scroll Tracking | ✅ | ✅ |
 | Hard Block | Pro only | Pro only ✅ |
@@ -36,6 +37,7 @@ Existing apps like BrainPal only *show* the data. Nobody actually *stops* you.
 - **Friend Accountability** — Share daily count, social pressure works
 
 ## Tech Stack
+
 Android + iOS + Cloud Backend
 
 ## Pricing
@@ -67,4 +69,3 @@ Built by **RY Studio Lab**
 ---
 
 *Also by RY Studio Lab: [MaalSaathi](https://github.com/rahulyadavhub) — WhatsApp AI fleet manager for Indian truck owners*
-  
