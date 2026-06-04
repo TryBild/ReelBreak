@@ -7,11 +7,9 @@ const PORT = process.env.PORT || 3000;
 
 const start = async () => {
   await connectDB();
-
   // Start cron jobs
   startDailyDigest();
   startWeeklyReport();
-
   app.listen(PORT, () => {
     console.log(`🧠 ReelBreak API running on port ${PORT}`);
   });
