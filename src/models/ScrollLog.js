@@ -14,6 +14,7 @@ const scrollLogSchema = new mongoose.Schema({
   limitHitAt: { type: Date }
 }, { timestamps: true });
 
+// Compound index — one log per user per day
 scrollLogSchema.index({ userId: 1, date: 1 }, { unique: true });
 
 module.exports = mongoose.model('ScrollLog', scrollLogSchema);

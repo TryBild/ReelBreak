@@ -7,6 +7,7 @@ const otpSchema = new mongoose.Schema({
   verified: { type: Boolean, default: false }
 }, { timestamps: true });
 
+// Auto delete after 10 minutes
 otpSchema.index({ expiresAt: 1 }, { expireAfterSeconds: 0 });
 
 module.exports = mongoose.model('OTP', otpSchema);

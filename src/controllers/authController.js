@@ -12,6 +12,7 @@ const generateOTP = () => {
   return Math.floor(100000 + Math.random() * 900000).toString();
 };
 
+// Send OTP
 const sendOTP = async (req, res) => {
   try {
     const { phone } = req.body;
@@ -25,6 +26,7 @@ const sendOTP = async (req, res) => {
       { otp, expiresAt, verified: false },
       { upsert: true, new: true }
     );
+    // TODO: Send OTP via Twilio/SMS
     console.log(`OTP for ${phone}: ${otp}`);
     res.status(200).json({ success: true, message: 'OTP sent' });
   } catch (error) {
@@ -32,6 +34,7 @@ const sendOTP = async (req, res) => {
   }
 };
 
+// Verify OTP + Login/Register
 const verifyOTP = async (req, res) => {
   try {
     const { phone, otp } = req.body;
