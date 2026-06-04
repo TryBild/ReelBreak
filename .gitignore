@@ -1,0 +1,19 @@
+# Local secrets — NEVER push
+local.properties
+*.jks
+*.keystore
+.env
+google-services.json
+
+# Android Studio
+.idea/
+*.iml
+.gradle/
+build/
+captures/
+.externalNativeBuild/
+.codeStyles/
+
+# OS
+.DS_Store
+Thumbs.db
