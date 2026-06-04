@@ -3,10 +3,12 @@ const router = express.Router();
 const { protect } = require('../middleware/auth');
 const User = require('../models/User');
 
+// Get profile
 router.get('/profile', protect, async (req, res) => {
   res.status(200).json({ success: true, data: req.user });
 });
 
+// Update WhatsApp settings
 router.put('/whatsapp', protect, async (req, res) => {
   try {
     const { whatsappEnabled, whatsappPhone } = req.body;
@@ -17,6 +19,7 @@ router.put('/whatsapp', protect, async (req, res) => {
   }
 });
 
+// Update name
 router.put('/name', protect, async (req, res) => {
   try {
     const { name } = req.body;
