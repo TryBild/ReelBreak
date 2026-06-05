@@ -33,17 +33,6 @@ Existing apps only *show* the data. Nobody actually *stops* you.
 - **Live Alerts** — WhatsApp alert at 80% + block notification
 - **Friend Accountability** — Share daily count, social pressure works
 
-## Tech Stack
-
-| Layer | Technology |
-|---|---|
-| Android | Kotlin + Accessibility Service API |
-| iOS | Swift + Screen Time API |
-| Landing Page | HTML + CSS |
-| Backend | Node.js + Express + MongoDB Atlas |
-| WhatsApp | Meta Cloud API |
-| Hosting | Render.com |
-
 ## Pricing
 
 | Plan | Price | Key Features |
