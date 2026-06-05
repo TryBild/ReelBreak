@@ -9,17 +9,7 @@ import android.os.Looper
 import android.view.Gravity
 import android.view.WindowManager
 import android.view.accessibility.AccessibilityEvent
-import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Text
-import androidx.compose.ui.Alignment
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.ComposeView
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
-import androidx.compose.ui.unit.sp
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
@@ -32,6 +22,9 @@ import androidx.savedstate.setViewTreeSavedStateRegistryOwner
 class ScrollTrackerService : AccessibilityService(), LifecycleOwner, SavedStateRegistryOwner {
 
     private var scrollCount = 0
+    private var lastScrollTime = 0L
+    private val DEBOUNCE_MS = 800L
+
     private var overlayView: ComposeView? = null
     private lateinit var windowManager: WindowManager
     private val handler = Handler(Looper.getMainLooper())
@@ -67,8 +60,17 @@ class ScrollTrackerService : AccessibilityService(), LifecycleOwner, SavedStateR
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         event ?: return
         if (event.eventType == AccessibilityEvent.TYPE_VIEW_SCROLLED) {
-            scrollCount++
-            handler.post { showOrUpdateOverlay() }
+            val now = System.currentTimeMillis()
+            if (now - lastScrollTime > DEBOUNCE_MS) {
+                lastScrollTime = now
+                scrollCount++
+                handler.post {
+                    showOrUpdateOverlay()
+                    if (scrollCount >= DAILY_LIMIT) {
+                        BlockOverlayService.start(this)
+                    }
+                }
+            }
         }
     }
 
@@ -112,5 +114,9 @@ class ScrollTrackerService : AccessibilityService(), LifecycleOwner, SavedStateR
             windowManager.removeView(it)
             overlayView = null
         }
+    }
+
+    companion object {
+        const val DAILY_LIMIT = 100
     }
 }
