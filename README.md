@@ -1,6 +1,5 @@
 # ReelBreak 🧠
 ### Break the Reel. Reclaim Your Mind.
-
 > India-first Android + iOS app that **actively stops doom scrolling** — not just tracks it.
 
 [![Platform](https://img.shields.io/badge/Platform-Android%20%2B%20iOS-blue)](https://reelbreak.in)
@@ -12,7 +11,6 @@
 ---
 
 ## The Problem
-
 The average Indian user scrolls **300+ reels/day** without realizing it.
 Existing apps only *show* the data. Nobody actually *stops* you.
 
@@ -21,14 +19,13 @@ Existing apps only *show* the data. Nobody actually *stops* you.
 | Feature | Others | ReelBreak |
 |---|---|---|
 | Scroll Tracking | ✅ | ✅ |
-| Hard Block | Pro only | Pro only ✅ |
+| Hard Block | Pro only | ✅ |
 | WhatsApp Daily Digest | ❌ | ✅ **Our moat** |
 | iOS Support | ❌ | ✅ |
 | Price | ₹99/month | ₹79/month |
-| Design | Partial India | Full Hinglish |
+| Design | Generic | Full Hinglish |
 
 ## Core Features
-
 - **Real-Time Counter** — Tracks every reel on Instagram, YouTube, Facebook, Snapchat
 - **Brain Visual** — Brain degrades visually as count climbs (emotional trigger)
 - **Hard Block** — Literally locks the app when daily limit is hit
@@ -38,7 +35,14 @@ Existing apps only *show* the data. Nobody actually *stops* you.
 
 ## Tech Stack
 
-Android + iOS + Cloud Backend
+| Layer | Technology |
+|---|---|
+| Android | Kotlin + Accessibility Service API |
+| iOS | Swift + Screen Time API |
+| Landing Page | HTML + CSS |
+| Backend | Node.js + Express + MongoDB Atlas |
+| WhatsApp | Meta Cloud API |
+| Hosting | Render.com |
 
 ## Pricing
 
@@ -49,7 +53,6 @@ Android + iOS + Cloud Backend
 | Pro Yearly | ₹699/year | Everything + analytics |
 
 ## Team
-
 Built by **RY Studio Lab**
 - Rahul Yadav — Backend Lead + Founder
 - Member 2 — Android Developer
@@ -57,15 +60,13 @@ Built by **RY Studio Lab**
 - 6 AI Agents assisting development
 
 ## Build Timeline
-
 4 weeks to launch — June/July 2026
 
 ## Links
-
 - 🌐 Website: [reelbreak.in](https://reelbreak.in)
+- 📸 Instagram: [@reelbreak.in](https://instagram.com/reelbreak.in)
 - 📧 Contact: rystudiolab@gmail.com
 - 🏢 Studio: [RY Studio Lab](https://github.com/rahulyadavhub)
 
 ---
-
 *Also by RY Studio Lab: [MaalSaathi](https://github.com/rahulyadavhub) — WhatsApp AI fleet manager for Indian truck owners*
