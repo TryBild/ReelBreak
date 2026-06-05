@@ -680,8 +680,13 @@
   </p>
 
   <div class="waitlist-form">
-    <input type="email" class="waitlist-input" id="email1" placeholder="your@email.com" />
-    <button class="waitlist-btn" onclick="joinWaitlist('email1', 'msg1')">Join Waitlist</button>
+    <form id="sib-form" method="POST" action="https://b54426e4.sibforms.com/serve/MUIFAJq1FMYu08fn65N6spC7ISWLx3lm-NyEbTIC3Stj2_c17BtWpLMG3vsQzHOOLbSRPJsKPGXHTz89qgCM9Y65NkE5riSSDfWleWuJtyuVi-T0_wGUQyyhqw9MOz4QRcJenZGrxIMhWV4mSvje98TM8ZjC8NDoTjuO-L_blHohAPgHElX9V-LUWB5XwOhUhv3hUcNULdMhi-ApYQ==" style="display:flex;gap:12px;flex-wrap:wrap;justify-content:center;">
+      <input type="text" name="email_address_check" value="" style="display:none">
+      <input type="hidden" name="locale" value="en">
+      <input type="hidden" name="html_type" value="simple">
+      <input class="waitlist-input" type="email" id="EMAIL" name="EMAIL" placeholder="your@email.com" required />
+      <button class="waitlist-btn" type="submit">Join Waitlist</button>
+    </form>
   </div>
   <div class="success-msg" id="msg1">🎉 You're on the list! We'll notify you at launch.</div>
   <p class="waitlist-note">No spam. Launch notification only. 🔒</p>
