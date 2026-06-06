@@ -18,12 +18,17 @@ import androidx.savedstate.SavedStateRegistry
 import androidx.savedstate.SavedStateRegistryController
 import androidx.savedstate.SavedStateRegistryOwner
 import androidx.savedstate.setViewTreeSavedStateRegistryOwner
+import `in`.reelbreak.app.service.BlockOverlayService
+import `in`.reelbreak.app.WarningActivity
 
 class ScrollTrackerService : AccessibilityService(), LifecycleOwner, SavedStateRegistryOwner {
 
     private var scrollCount = 0
-    private var lastScrollTime = 0L
-    private val DEBOUNCE_MS = 800L
+    private var lastScrollY = 0
+    private var scrollRunnable: Runnable? = null
+
+    private val SCROLL_END_DELAY_MS = 500L
+    private val MIN_REEL_SCROLL_PX = 300
 
     private var overlayView: ComposeView? = null
     private lateinit var windowManager: WindowManager
@@ -59,19 +64,40 @@ class ScrollTrackerService : AccessibilityService(), LifecycleOwner, SavedStateR
 
     override fun onAccessibilityEvent(event: AccessibilityEvent?) {
         event ?: return
-        if (event.eventType == AccessibilityEvent.TYPE_VIEW_SCROLLED) {
-            val now = System.currentTimeMillis()
-            if (now - lastScrollTime > DEBOUNCE_MS) {
-                lastScrollTime = now
-                scrollCount++
-                handler.post {
+        if (event.eventType != AccessibilityEvent.TYPE_VIEW_SCROLLED) return
+
+        val currentScrollY = event.scrollY
+
+        scrollRunnable?.let { handler.removeCallbacks(it) }
+
+        scrollRunnable = Runnable {
+            val scrollDiff = currentScrollY - lastScrollY
+
+            when {
+                scrollDiff >= MIN_REEL_SCROLL_PX -> {
+                    lastScrollY = currentScrollY
+                    scrollCount++
                     showOrUpdateOverlay()
+
+                    // Har 50 pe warning popup
+                    if (scrollCount % 50 == 0) {
+                        WarningActivity.launch(this, scrollCount)
+                    }
+
+                    // Daily limit pe hard block
                     if (scrollCount >= DAILY_LIMIT) {
                         BlockOverlayService.start(this)
                     }
                 }
+                scrollDiff <= -MIN_REEL_SCROLL_PX -> {
+                    // Backward scroll — count nahi, sirf position update
+                    lastScrollY = currentScrollY
+                }
+                // Same reel pe thoda scroll — ignore
             }
         }
+
+        handler.postDelayed(scrollRunnable!!, SCROLL_END_DELAY_MS)
     }
 
     private fun showOrUpdateOverlay() {
