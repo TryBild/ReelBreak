@@ -54,8 +54,8 @@ Built by **RY Studio Lab**
 ## Links
 - 🌐 Website: [reelbreak.in](https://reelbreak.in)
 - 📸 Instagram: [@reelbreak.in](https://instagram.com/reelbreak.in)
-- 📧 Contact: rystudiolab@gmail.com
-- 🏢 Studio: [RY Studio Lab](https://github.com/rahulyadavhub)
+- 📧 Contact: trybild@gmail.com
+- 🏢 Studio: [TryBild](https://trybild.com)
 
 ---
 *Also by RY Studio Lab: [MaalSaathi](https://github.com/rahulyadavhub) — WhatsApp AI fleet manager for Indian truck owners*
